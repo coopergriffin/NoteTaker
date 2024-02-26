@@ -8,15 +8,17 @@ const dbFilePath = path.join(__dirname, '..', 'db', 'db.json');
 
 // Read notes from the db.json file
 router.get('/notes', (req, res) => {
-  fs.readFile(dbFilePath, 'utf8', (err, data) => {
-    if (err) {
-      console.error(err);
-      res.status(500).json({ error: 'Failed to read notes' });
-      return;
-    }
-    res.json(JSON.parse(data));
+    console.log("Hasdfa");
+    fs.readFile(dbFilePath, 'utf8', (err, data) => {
+      if (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Failed to read notes' });
+        return;
+      }
+      console.log("Data from db.json:", data); // Log the data here
+      res.json(JSON.parse(data));
+    });
   });
-});
 
 // Add a new note to the db.json file
 router.post('/notes', (req, res) => {

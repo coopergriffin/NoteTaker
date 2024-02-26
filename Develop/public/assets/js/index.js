@@ -129,11 +129,12 @@ const handleRenderBtns = () => {
 
 // Render the list of note titles
 const renderNoteList = async (notes) => {
+  console.log("asdfasd3");
   let jsonNotes = await notes.json();
   if (window.location.pathname === '/notes') {
     noteList.forEach((el) => (el.innerHTML = ''));
   }
-
+  console.log("asdfas4d");
   let noteListItems = [];
 
   // Returns HTML element with or without a delete button
@@ -182,8 +183,14 @@ const renderNoteList = async (notes) => {
 };
 
 // Gets notes from the db and renders them to the sidebar
-const getAndRenderNotes = () => getNotes().then(renderNoteList);
-
+const getAndRenderNotes = () => {
+  getNotes()
+    .then(renderNoteList)
+    .catch((error) => {
+      console.error('Error fetching and rendering notes:', error);
+      // Handle the error here, such as displaying an error message to the user
+    });
+};
 if (window.location.pathname === '/notes') {
   saveNoteBtn.addEventListener('click', handleNoteSave);
   newNoteBtn.addEventListener('click', handleNewNoteView);

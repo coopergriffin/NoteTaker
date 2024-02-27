@@ -3,6 +3,7 @@
 Contributers: Cooper Griffin 
 
 Simple note taking app that lets user create, read, update and delete notes 
+Deployed using Heroku 
 
 Link for live app https://notetakerchallenge-57a751a44c51.herokuapp.com/ 
 
